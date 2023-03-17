@@ -1,12 +1,10 @@
-/* SECCIÓN DE IMPORT */
-
-// - De React
-// - Nuestros
-// - Sass
+import { useEffect } from 'react';
+import ListContacts from './ListContact';
 import '../styles/App.scss';
-// - Imágenes
 
-/* SECCIÓN DEL COMPONENTE */
+
+
+
 function App() {
   /* VARIABLES ESTADO (DATOS) */
 
@@ -17,7 +15,21 @@ function App() {
   /* FUNCIONES Y VARIABLES AUXILIARES PARA PINTAR EL HTML */
 
   /* HTML */
-  return <div className="App">{/* Aquí va el HTML */}</div>;
+  return <div className="App">
+    <header>
+      <h1>Listado de contactos</h1>
+    </header>
+    <main>
+      <ListContacts/>
+      
+
+
+    </main>
+
+
+
+
+  </div>;
 }
 
 /* PROP-TYPES */
