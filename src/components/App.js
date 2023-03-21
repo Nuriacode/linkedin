@@ -1,38 +1,33 @@
-import { useEffect } from 'react';
-import ListContacts from './ListContact';
-import '../styles/App.scss';
+import { useState, useEffect } from "react";
 
-
-
+import "../styles/App.scss";
+import ContactList from "./ContactList";
+import getDataApi from "./services/api";
+import Header from "./Header";
 
 function App() {
-  /* VARIABLES ESTADO (DATOS) */
+  const [listContacs, setListContacts] = useState([]);
 
-  /* EFECTOS (día 5) */
+  const [search, setSearch] = useState([]);
 
-  /* FUNCIONES HANDLER */
+  const setInputSearch = (value) =>{
+    setSearch(value)
+  }
 
-  /* FUNCIONES Y VARIABLES AUXILIARES PARA PINTAR EL HTML */
+  useEffect(() => {
+    getDataApi().then((okData) => {
+      console.log(okData);
+      setListContacts(okData);
+    });
+  }, []);
 
-  /* HTML */
-  return <div className="App">
-    <header>
-      <h1>Listado de contactos</h1>
-    </header>
-    <main>
-      <ListContacts/>
-      
-
-
-    </main>
-
-
-
-
-  </div>;
+  return (
+    <div>
+      <Header search={search}setInputSearch={setInputSearch}/>
+      <main>
+        <ContactList listContacs={listContacs}/>
+      </main>
+    </div>
+  );
 }
-
-/* PROP-TYPES */
-
-/* EXPORT DEL COMPONENTE */
 export default App;

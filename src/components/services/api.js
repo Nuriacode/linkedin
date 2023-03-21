@@ -1,4 +1,4 @@
-const GetDataApi = () => {
+const getDataApi = () => {
     return fetch ('https://randomuser.me/api/?results=50')
     .then ((response) => response.json())
     .then ((data) => {
@@ -8,7 +8,7 @@ const GetDataApi = () => {
                 lastName: eachContact.name.last,
                 gender: eachContact.gender,
                 photo: eachContact.picture.large,
-                location: eachContact.location.city,
+                city: eachContact.location.city,
                 id: eachContact.id,
                 age: eachContact.dob.age
             };
@@ -17,4 +17,4 @@ const GetDataApi = () => {
     })
 }
 
-export default GetDataApi;
+export default getDataApi;
